@@ -9,7 +9,7 @@
         </div>
         <div class="flex w-full items-center justify-between px-4">
           <div>
-            <button id="navbarToggler"
+            <button id="navbarToggler" @click="navbarTogglerClick"
               class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
               <span class="relative my-[6px] block h-[2px] w-[30px] bg-white"></span>
               <span class="relative my-[6px] block h-[2px] w-[30px] bg-white"></span>
@@ -19,22 +19,22 @@
               class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:px-4 lg:shadow-none xl:px-6">
               <ul class="blcok lg:flex">
                 <li class="group relative">
-                  <a href="#home"
+                  <nuxt-link to="/#home"
                     class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                     Home
-                  </a>
+                  </nuxt-link>
                 </li>
                 <li class="group relative">
-                  <a href="#about"
+                  <a href="/#about"
                     class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12">
                     About
                   </a>
                 </li>
                 <li class="group relative">
-                  <a href="#pricing"
+                  <nuxt-link to="/blog"
                     class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:ml-7 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-12">
-                    Pricing
-                  </a>
+                    Blog
+                  </nuxt-link>
                 </li>
                 <li class="group relative">
                   <a href="#team"
@@ -105,3 +105,64 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  created() {
+    if (process.client) {
+      window.addEventListener("scroll", this.handleScroll);
+
+      //===== close navbar-collapse when a  clicked
+      document.querySelectorAll("#navbarCollapse ul li:not(.submenu-item) a")
+        .forEach((el) => {
+          el.addEventListener("click", () => {
+            document.querySelector("#navbarToggler").classList.remove("navbarTogglerActive");
+            document.querySelector("#navbarCollapse").classList.add("hidden");
+          })
+        });
+    }
+
+    // ===== Sub-menu
+    document.querySelectorAll(".submenu-item")
+      .forEach((el) => {
+        el.querySelector("a").addEventListener("click", () => {
+          el.querySelector(".submenu").classList.toggle("hidden");
+        });
+      });
+  },
+  methods: {
+    navbarTogglerClick() {
+      document.querySelector("#navbarToggler").classList.toggle("navbarTogglerActive");
+      document.querySelector("#navbarCollapse").classList.toggle("hidden");
+    },
+    handleScroll() {
+      // const ud_header = document.querySelector(".ud-header");
+      // const sticky = ud_header.offsetTop;
+      // if (window.pageYOffset > sticky) {
+      //   ud_header.classList.add("sticky");
+      // } else {
+      //   ud_header.classList.remove("sticky");
+      // }
+
+      // === logo change
+      // const logo = document.querySelector(".header-logo");
+      // if (ud_header.classList.contains("sticky")) {
+      //   logo.src = "/images/logo.svg";
+      // } else {
+      //   logo.src = "/images/logo-white.svg";
+      // }
+
+      // show or hide the back-top-top button
+      const backToTop = document.querySelector(".back-to-top");
+      if (
+        document.body.scrollTop > 50 ||
+        document.documentElement.scrollTop > 50
+      ) {
+        backToTop.style.display = "flex";
+      } else {
+        backToTop.style.display = "none";
+      }
+    }
+  }
+}
+</script>
