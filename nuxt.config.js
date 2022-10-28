@@ -1,4 +1,5 @@
 export default {
+  // source dir
   srcDir: 'src/',
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -9,7 +10,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'peyvand-website',
+    title: 'Peyvand IT Solutions',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,6 +38,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    // https://composition-api.nuxtjs.org/getting-started/setup
+    '@nuxtjs/composition-api/module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
