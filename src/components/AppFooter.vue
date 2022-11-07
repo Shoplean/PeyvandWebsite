@@ -108,31 +108,31 @@
         <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
           <div class="mb-10 w-full">
             <h4 class="mb-9 text-lg font-semibold text-white">
-              Our Products
+              Our Services
             </h4>
             <ul>
               <li>
                 <a href="javascript:void(0)"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  LineIcons
+                  Websites for Businesses
                 </a>
               </li>
               <li>
                 <a href="javascript:void(0)"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  Ecommerce HTML
+                  E-Commerce Websites
                 </a>
               </li>
               <li>
                 <a href="javascript:void(0)"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  Ayro UI
+                  Wordpress Templates
                 </a>
               </li>
               <li>
                 <a href="javascript:void(0)"
                   class="mb-2 inline-block text-base leading-loose text-[#f3f4fe] hover:text-primary">
-                  PlainAdmin
+                  Software Design
                 </a>
               </li>
             </ul>

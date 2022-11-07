@@ -6,6 +6,7 @@ module.exports = {
     "./nuxt.config.{js,ts}",
   ],
   theme: {
+    dark: false,
     screens: {
       sm: "540px",
       // => @media (min-width: 576px) { ... }
